@@ -161,6 +161,8 @@
 
 <script src="assets/js/common.js"></script>
 <script src="assets/js/layout.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/settings.js"></script>
 <script>
 // 프로필 사진이 있으면 자동으로 끼워 넣습니다.
 (function () {
@@ -206,7 +208,8 @@ Promise.all([
   fetch('data/publications.json').then((r) => r.json()),
   fetch('data/books.json').then((r) => r.json()).catch(() => ({ items: [] })),
   fetch('data/teaching.json').then((r) => r.json()).catch(() => null),
-]).then(([pubs, books, teaching]) => {
+  readSetting('showEnrollment', false),
+]).then(([pubs, books, teaching, showN]) => {
   const cited = pubs.items.reduce((sum, p) => sum + (p.citations || 0), 0);
   const gwR = document.getElementById('gw-research');
   if (gwR) {
@@ -216,8 +219,9 @@ Promise.all([
   const gwT = document.getElementById('gw-teaching');
   if (gwT && teaching) {
     const s = teaching.summary;
-    gwT.textContent =
-      `${s.semesterCount}개 학기 · ${s.uniqueCourseCount}개 과목 · 누적 수강 ${s.totalStudents}명`;
+    gwT.textContent = showN === true
+      ? `${s.semesterCount}개 학기 · ${s.uniqueCourseCount}개 과목 · 누적 수강 ${s.totalStudents}명`
+      : `${s.semesterCount}개 학기 · ${s.uniqueCourseCount}개 과목 · ${s.openedCount}번 개설`;
   }
 }).catch(() => { /* 숫자가 없어도 카드는 그대로 보입니다 */ });
 </script>

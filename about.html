@@ -277,17 +277,19 @@
 <script>
 // 강의 정보는 data/teaching.json 에서 가져옵니다.
 // 그 파일은 tools/import-timetable.py 가 강의시간표 PDF 에서 자동으로 만듭니다.
-fetch('data/teaching.json')
-  .then((r) => r.json())
-  .then((t) => {
+Promise.all([
+  fetch('data/teaching.json').then((r) => r.json()),
+  readSetting('showEnrollment', false),
+])
+  .then(([t, showN]) => {
     const box = document.getElementById('teaching-list');
     const sem = t.semesters && t.semesters[0];
     const s = t.summary || {};
 
     document.getElementById('teaching-sub').innerHTML =
       `${esc(s.firstSemester)}부터 ${esc(s.semesterCount)}개 학기 동안 ` +
-      `${esc(s.uniqueCourseCount)}개 과목을 ${esc(s.openedCount)}번 열어 ` +
-      `${esc(s.totalStudents)}명이 수강했습니다. ` +
+      `${esc(s.uniqueCourseCount)}개 과목을 ${esc(s.openedCount)}번 열었습니다` +
+      (showN === true ? ` (누적 수강 ${esc(s.totalStudents)}명)` : '') + '. ' +
       `학기별 전체 이력은 <a href="courses.html">수업 페이지</a>에 있습니다.`;
 
     if (!sem) { box.innerHTML = '<p class="muted">등록된 과목이 없습니다.</p>'; return; }

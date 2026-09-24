@@ -95,16 +95,23 @@
 
 <script src="assets/js/common.js"></script>
 <script src="assets/js/layout.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/settings.js"></script>
 <script>
 (function () {
   const LEVEL_CLASS = { '학부': 'ug', '대학원': 'grad', '교양': 'ge' };
   const levelTag = (lv) => `<span class="tag tag--${LEVEL_CLASS[lv] || 'ug'}">${esc(lv)}</span>`;
 
+  // 수강생 수 공개 여부는 관리 페이지에서 켜고 끕니다. 기본은 숨김입니다.
+  let showN = false;
+
   Promise.all([
     fetch('data/teaching.json').then((r) => r.json()),
     fetch('data/courses.json').then((r) => r.json()).catch(() => ({ courses: [] })),
+    readSetting('showEnrollment', false),
   ])
-    .then(([teaching, cData]) => {
+    .then(([teaching, cData, setting]) => {
+      showN = setting === true;
       const details = cData.courses || [];
       renderStats(teaching.summary);
       renderCurrent(teaching.semesters[0], details);
@@ -125,12 +132,13 @@
   }
 
   function renderStats(s) {
-    document.getElementById('stats').innerHTML = [
+    const cards = [
       statCard(s.semesterCount, '학기'),
       statCard(s.uniqueCourseCount, '서로 다른 과목'),
       statCard(s.openedCount, '개설 건수'),
-      statCard(s.totalStudents, '누적 수강생'),
-    ].join('');
+    ];
+    if (showN) cards.push(statCard(s.totalStudents, '누적 수강생'));
+    document.getElementById('stats').innerHTML = cards.join('');
     document.getElementById('stats-note').textContent =
       `${s.firstSemester} ~ ${s.latestSemester} · 강의시간표 기준`;
   }
@@ -144,8 +152,9 @@
   function renderCurrent(sem, details) {
     if (!sem) return;
     document.getElementById('current-title').textContent = sem.label;
-    document.getElementById('current-sub').textContent =
-      `${sem.courseCount}과목 · 수강생 ${sem.students}명`;
+    document.getElementById('current-sub').textContent = showN
+      ? `${sem.courseCount}과목 · 수강생 ${sem.students}명`
+      : `${sem.courseCount}과목`;
 
     document.getElementById('current-list').innerHTML = sem.courses.map((c) => {
       const d = detailFor(c, sem.id, details);
@@ -166,7 +175,7 @@
           ${esc(c.when || '')}${c.room ? ' · ' + esc(c.room) : ''}
         </p>
         <p class="small" style="margin:.2rem 0 0; color:var(--ink-soft)">
-          수강 ${esc(c.enrolled ?? '-')}명${c.capacity ? ` / 정원 ${esc(c.capacity)}명` : ''}${c.mode ? ' · ' + esc(c.mode) : ''}
+          ${showN ? `수강 ${esc(c.enrolled ?? '-')}명` : ''}${showN && c.capacity ? ' / ' : ''}${c.capacity ? `정원 ${esc(c.capacity)}명` : ''}${c.mode ? ' · ' + esc(c.mode) : ''}
         </p>
         ${d && d.summary ? `<p class="small" style="margin:.5rem 0 0; color:var(--ink-soft)">${esc(d.summary)}</p>` : ''}
         ${links}
@@ -179,7 +188,7 @@
       <details class="sem"${i === 0 ? ' open' : ''}>
         <summary>
           ${esc(s.label)}
-          <span class="sem__meta">${esc(s.courseCount)}과목 · ${esc(s.students)}명</span>
+          <span class="sem__meta">${esc(s.courseCount)}과목${showN ? ` · ${esc(s.students)}명` : ''}</span>
         </summary>
         <div class="sem__body">
           ${s.courses.map((c) => `
@@ -187,7 +196,7 @@
               ${levelTag(c.level)}
               <span class="cl__name">${esc(c.title)}</span>
               <span class="cl__meta">${esc(c.when || '')}${c.room ? ' · ' + esc(c.room) : ''}</span>
-              <span class="cl__n">수강 ${esc(c.enrolled ?? '-')}명</span>
+              ${showN ? `<span class="cl__n">수강 ${esc(c.enrolled ?? '-')}명</span>` : ''}
             </div>`).join('')}
         </div>
       </details>`).join('');
@@ -204,7 +213,7 @@
         <span class="rank__name">${levelTag(e.level)} ${esc(e.title)}</span>
         <span class="rank__n">
           <span class="rank__times">${esc(e.count)}학기</span>
-          <span class="rank__students">누적 ${esc(e.students)}명</span>
+          ${showN ? `<span class="rank__students">누적 ${esc(e.students)}명</span>` : ''}
         </span>
         <span class="rank__sub">${esc(e.semesters.join(' · '))}</span>
         <span class="rank__bar"><span class="rank__fill" style="width:${(e.count / max * 100).toFixed(0)}%"></span></span>

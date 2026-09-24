@@ -98,15 +98,31 @@
       msg.style.color = '';
     }
 
+    bindToggle(box, 'showProjectBudget', msg, {
+      on: '금액을 공개합니다. 연구 페이지를 새로 고치면 보입니다.',
+      off: '금액을 숨겼습니다. 연구 페이지를 새로 고치면 사라집니다.',
+    });
+
+    // 수강생 수 공개 (기본 숨김)
+    const enroll = document.getElementById('set-enroll');
+    if (enroll) {
+      enroll.checked = (await readSetting('showEnrollment', false)) === true;
+      bindToggle(enroll, 'showEnrollment', msg, {
+        on: '수강생 수를 공개합니다. 수업 페이지를 새로 고치면 보입니다.',
+        off: '수강생 수를 숨겼습니다. 수업 페이지를 새로 고치면 사라집니다.',
+      });
+    }
+  }
+
+  /** 체크박스 하나를 설정 값에 묶습니다. */
+  function bindToggle(box, key, msg, texts) {
     box.addEventListener('change', async () => {
       box.disabled = true;
       msg.style.color = '';
       msg.textContent = '저장 중…';
       try {
-        await API.setSetting('showProjectBudget', box.checked);
-        msg.textContent = box.checked
-          ? '금액을 공개합니다. 연구 페이지를 새로 고치면 보입니다.'
-          : '금액을 숨겼습니다. 연구 페이지를 새로 고치면 사라집니다.';
+        await API.setSetting(key, box.checked);
+        msg.textContent = box.checked ? texts.on : texts.off;
         msg.style.color = 'var(--ok)';
       } catch (err) {
         box.checked = !box.checked;
