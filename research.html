@@ -292,12 +292,19 @@
       // 총액은 연구책임 과제만 더합니다.
       // 공동연구원 과제의 총사업비를 본인 수주액으로 오해할 수 있기 때문입니다.
       const leadCount = list.filter(isLead).length;
-      const coCount = list.length - leadCount;
       const leadTotal = list.filter(isLead).reduce((s, p) => s + (p.budget || 0), 0);
 
+      // 연구책임자가 아닌 과제는 적어 둔 역할 그대로 세어 보여 줍니다.
+      const others = {};
+      list.filter((p) => !isLead(p)).forEach((p) => {
+        const r = p.role || '참여';
+        others[r] = (others[r] || 0) + 1;
+      });
+
       const money = showMoney && leadTotal ? ` (총 연구비 ${fmtMoney(leadTotal)})` : '';
+      const otherText = Object.entries(others).map(([r, n]) => `${r} ${n}건`).join(' · ');
       document.getElementById('proj-sub').textContent =
-        `연구책임자 ${leadCount}건${money} · 공동연구원 ${coCount}건`;
+        `연구책임자 ${leadCount}건${money}${otherText ? ' · ' + otherText : ''}`;
 
       const period = (p) => `${fmtMonth(p.start)}–${fmtMonth(p.end)}`;
       const where = (p) => [
@@ -307,7 +314,7 @@
       ].filter(Boolean).join(' · ');
       const roleTag = (p) => isLead(p)
         ? '<span class="tag tag--mil">연구책임자</span>'
-        : '<span class="tag">공동연구원</span>';
+        : `<span class="tag">${esc(p.role || '참여')}</span>`;
       // 금액은 연구책임 과제에만 표시합니다.
       const amount = (p) => (showMoney && isLead(p) && p.budget) ? fmtMoney(p.budget) : '';
 
