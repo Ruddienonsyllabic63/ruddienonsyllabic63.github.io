@@ -29,7 +29,7 @@ DATA = ROOT / "data"
 
 THEMES = {
     "reading": {"label": "독서·독서태도", "color": "reading"},
-    "mil":     {"label": "미디어정보 리터러시", "color": "mil"},
+    "mil":     {"label": "정보미디어 리터러시", "color": "mil"},
     "school":  {"label": "학교도서관·사서교사", "color": "school"},
     "policy":  {"label": "정책·법령", "color": "policy"},
     "library": {"label": "도서관·국제협력", "color": "library"},
@@ -202,7 +202,7 @@ def main() -> None:
     for key, meta in THEMES.items():
         print(f"  - {meta['label']}: {counts.get(key, 0)}편")
     if unknown:
-        print("\n주제를 정하지 못해 '미디어정보 리터러시'로 넣은 논문입니다.")
+        print("\n주제를 정하지 못해 '정보미디어 리터러시'로 넣은 논문입니다.")
         print("이 스크립트의 THEME_OVERRIDE 에 제목을 적어 주세요.")
         for t in unknown:
             print("  ·", t)

@@ -12,7 +12,7 @@
     <div class="site-footer__grid">
       <div>
         <h4>박주현</h4>
-        <p class="small mb-0">전남대학교 사회과학대학<br>문헌정보학과 조교수</p>
+        <p class="small mb-0">전남대학교 사회과학대학<br>문헌정보학과 부교수</p>
       </div>
       <div>
         <h4>연락</h4>
