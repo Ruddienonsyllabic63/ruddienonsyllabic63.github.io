@@ -224,6 +224,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
   font-size: .85rem; text-align: center; padding: 1rem; overflow: hidden;
 }
 .portrait img { width: 100%; height: 100%; object-fit: cover; }
+/* 사진이 들어오면 자리표시 문구용 안쪽 여백을 없애 꽉 채웁니다. */
+.portrait:has(img) { padding: 0; background: var(--surface-2); }
 
 /* ---------- 6. 두 갈래 진입 카드 ---------- */
 .gateway { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
