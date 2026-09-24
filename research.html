@@ -156,39 +156,15 @@
     </div>
   </section>
 
-  <!-- 특강·연수 -->
-  <section class="section">
+  <!-- 토론회·워크숍·세미나 -->
+  <section class="section" id="seminar-wrap" style="display:none">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">TALKS</p>
-        <h2>특강·연수</h2>
-        <p>사서교사 연수와 교육청·도서관 강연입니다.</p>
+        <p class="eyebrow">SEMINARS</p>
+        <h2>토론회·워크숍·세미나</h2>
+        <p id="seminar-sub"></p>
       </div>
-      <ul class="pub-list">
-        <li><span class="pub-title">리터러시와 독서인문교육</span><span class="pub-meta">전라남도교육청 · 2026</span></li>
-        <li><span class="pub-title">학교도서관 교육의 이해 — 독서교육 선도교원 양성 연수</span><span class="pub-meta">2026</span></li>
-        <li><span class="pub-title">미디어 리터러시의 이해 — 사서 연수</span><span class="pub-meta">국립중앙도서관 · 2025</span></li>
-        <li><span class="pub-title">독서교육의 효과와 실제</span><span class="pub-meta">2025</span></li>
-        <li><span class="pub-title">다매체 환경에서의 독서교육 이해와 설계</span><span class="pub-meta">2025</span></li>
-        <li><span class="pub-title">사서교사의 명칭과 역할</span><span class="pub-meta">2025</span></li>
-        <li><span class="pub-title">학교도서관 현황조사 데이터 분석 연구</span><span class="pub-meta">2025</span></li>
-        <li><span class="pub-title">사서교사 직무 체계화 및 배치모형 개발 연구</span><span class="pub-meta">2024</span></li>
-        <li><span class="pub-title">디지털 신기술 기반 디지털 독서교육 방안 모색</span><span class="pub-meta">2024</span></li>
-        <li><span class="pub-title">디지털 미디어 리터러시 향상을 위한 사서교사의 역할</span><span class="pub-meta">2023</span></li>
-        <li><span class="pub-title">학교에서의 사서교사의 역할 — 신규 사서교사 연수</span><span class="pub-meta">광주광역시교육청 · 2022</span></li>
-        <li><span class="pub-title">디지털 미디어 리터러시 교육 / 뇌과학과 독서교육</span><span class="pub-meta">울산광역시교육청 · 2022</span></li>
-        <li><span class="pub-title">미디어정보 리터러시</span><span class="pub-meta">충청북도교육도서관 · 2021</span></li>
-        <li><span class="pub-title">미디어정보 리터러시 — 사서교사 대상 연수</span><span class="pub-meta">광주광역시교육청 · 2021</span></li>
-        <li><span class="pub-title">예비 사서교사 대상 연수</span><span class="pub-meta">전북대학교 · 2020</span></li>
-        <li><span class="pub-title">사서교사 1급 자격연수</span><span class="pub-meta">공주대·경기대·대진대 · 2019–2022</span></li>
-        <li><span class="pub-title">사서교사의 역할</span><span class="pub-meta">전남대학교 · 2017</span></li>
-        <li><span class="pub-title">독서 리터러시 증진을 위한 사서교사 배치 방안</span><span class="pub-meta">국회 세미나</span></li>
-        <li><span class="pub-title">미디어정보 리터러시 교육 내용</span><span class="pub-meta">서울서부교육지원청</span></li>
-        <li><span class="pub-title">도서관과 디지털 리터러시</span><span class="pub-meta">충남도서관</span></li>
-      </ul>
-      <p class="small muted" style="margin-top:1.2rem">
-        연도는 발표 자료 파일에서 확인한 것입니다. 사실과 다르면 알려 주세요.
-      </p>
+      <ul class="pub-list" id="seminars"></ul>
     </div>
   </section>
 
@@ -357,6 +333,29 @@
     .catch(() => {
       document.getElementById('proj-sub').textContent = '연구 과제를 불러오지 못했습니다.';
     });
+
+  // 토론회·워크숍·세미나 — data/seminars.json 이 비어 있으면 구역 자체를 숨깁니다.
+  fetch('data/seminars.json')
+    .then((r) => r.json())
+    .then(({ items }) => {
+      if (!items || !items.length) return;
+      document.getElementById('seminar-wrap').style.display = '';
+      document.getElementById('seminar-sub').textContent = `${items.length}건`;
+      document.getElementById('seminars').innerHTML = items.map((x) => {
+        const where = [x.host, x.place, x.role].filter(Boolean).join(' · ');
+        return `<li>
+          <span class="pub-title">
+            ${esc(x.title)}
+            ${where ? `<span class="pub-cite">${esc(where)}</span>` : ''}
+          </span>
+          <span class="pub-meta">
+            <span class="pub-year">${esc(x.date || '')}</span>
+            ${x.kind ? `<span class="tag">${esc(x.kind)}</span>` : ''}
+          </span>
+        </li>`;
+      }).join('');
+    })
+    .catch(() => { /* 파일이 없으면 구역을 숨긴 채 둡니다 */ });
 
   function render() {
     const rows = DATA.items.filter((p) => {
