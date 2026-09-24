@@ -463,19 +463,22 @@ textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
 .cl__n { margin-left: auto; font-size: .85rem; color: var(--ink-soft); white-space: nowrap; }
 @media (max-width: 560px) { .cl__n { margin-left: 0; width: 100%; } }
 
-.rank { list-style: none; margin: 0; padding: 0; }
-.rank li {
-  display: grid; grid-template-columns: 1fr auto; gap: .35rem .9rem;
-  padding: .8rem .1rem; border-bottom: 1px solid var(--line-soft);
+/* 과목별 누적 — 한 줄에 하나씩, 화면 너비에 따라 여러 열로 */
+.tally {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 0 1.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
 }
-.rank li:first-child { border-top: 1px solid var(--line-soft); }
-.rank__name { font-size: .96rem; font-weight: 600; }
-.rank__sub { grid-column: 1; font-size: .82rem; color: var(--ink-faint); }
-.rank__n { grid-row: 1 / span 2; align-self: center; text-align: right; white-space: nowrap; }
-.rank__times { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
-.rank__students { display: block; font-size: .8rem; color: var(--ink-faint); }
-.rank__bar { grid-column: 1 / -1; height: 5px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
-.rank__fill { height: 100%; background: var(--navy); border-radius: 3px; }
+.tally li {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .46rem .1rem; border-bottom: 1px solid var(--line-soft);
+  font-size: .93rem; min-width: 0;
+}
+.tally__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tally__n { font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tally__n small { font-weight: 500; font-size: .8em; color: var(--ink-faint); margin-left: .1rem; }
+.tally__students { font-size: .8rem; color: var(--ink-faint); white-space: nowrap; }
+.tally .tag { flex: none; font-size: .72rem; padding: .12rem .42rem; }
 
 /* ---------- 12. 타임라인(약력) ---------- */
 .timeline { list-style: none; margin: 0; padding: 0 0 0 1.2rem; border-left: 2px solid var(--line); }

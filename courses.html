@@ -83,9 +83,9 @@
     <div class="wrap">
       <div class="section-head">
         <h2>과목별 누적</h2>
-        <p>같은 과목을 몇 학기 동안 가르쳤는지, 모두 몇 명이 들었는지입니다.</p>
+        <p id="rank-sub">같은 과목을 몇 학기 동안 가르쳤는지입니다.</p>
       </div>
-      <ul class="rank" id="rank"></ul>
+      <ul class="tally" id="rank"></ul>
     </div>
   </section>
 
@@ -207,16 +207,16 @@
 
   function renderRank(byCourse) {
     if (!byCourse || !byCourse.length) return;
-    const max = byCourse[0].count;
+    document.getElementById('rank-sub').textContent =
+      `${byCourse.length}개 과목 · 같은 과목을 몇 학기 동안 가르쳤는지입니다.`;
+    // 어느 학기에 열었는지는 위쪽 '학기별 강의 이력'에 이미 있어 여기서는 생략합니다.
+    // 대신 줄에 마우스를 올리면 학기가 보입니다.
     document.getElementById('rank').innerHTML = byCourse.map((e) => `
-      <li>
-        <span class="rank__name">${levelTag(e.level)} ${esc(e.title)}</span>
-        <span class="rank__n">
-          <span class="rank__times">${esc(e.count)}학기</span>
-          ${showN ? `<span class="rank__students">누적 ${esc(e.students)}명</span>` : ''}
-        </span>
-        <span class="rank__sub">${esc(e.semesters.join(' · '))}</span>
-        <span class="rank__bar"><span class="rank__fill" style="width:${(e.count / max * 100).toFixed(0)}%"></span></span>
+      <li title="${esc(e.title)} — ${esc(e.semesters.join(', '))}">
+        ${levelTag(e.level)}
+        <span class="tally__name">${esc(e.title)}</span>
+        ${showN ? `<span class="tally__students">${esc(e.students)}명</span>` : ''}
+        <span class="tally__n">${esc(e.count)}<small>학기</small></span>
       </li>`).join('');
   }
 })();
