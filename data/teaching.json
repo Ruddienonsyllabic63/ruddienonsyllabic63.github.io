@@ -1,0 +1,1297 @@
+{
+  "_안내": "tools/import-timetable.py 가 강의시간표 PDF 에서 자동으로 만든 파일입니다. 직접 고치면 다음 실행 때 덮어써집니다.",
+  "생성일": "2026-09-24",
+  "summary": {
+    "semesterCount": 10,
+    "firstSemester": "2022학년도 1학기",
+    "latestSemester": "2026학년도 2학기",
+    "openedCount": 36,
+    "uniqueCourseCount": 20,
+    "totalStudents": 623
+  },
+  "byCourse": [
+    {
+      "title": "문헌정보학개론",
+      "code": "LIS1001",
+      "level": "학부",
+      "count": 4,
+      "students": 154,
+      "semesters": [
+        "2026-1",
+        "2025-1",
+        "2024-1",
+        "2023-1"
+      ]
+    },
+    {
+      "title": "독서지도론",
+      "code": "LIS2001",
+      "level": "학부",
+      "count": 3,
+      "students": 60,
+      "semesters": [
+        "2024-1",
+        "2023-1",
+        "2022-1"
+      ]
+    },
+    {
+      "title": "데이터베이스론",
+      "code": "LIS3004",
+      "level": "학부",
+      "count": 3,
+      "students": 51,
+      "semesters": [
+        "2024-1",
+        "2023-1",
+        "2022-1"
+      ]
+    },
+    {
+      "title": "기록관리이론연구",
+      "code": "GR23187",
+      "level": "대학원",
+      "count": 3,
+      "students": 44,
+      "semesters": [
+        "2025-2",
+        "2024-2",
+        "2023-1"
+      ]
+    },
+    {
+      "title": "도서관기획론",
+      "code": "LIS4034",
+      "level": "학부",
+      "count": 3,
+      "students": 27,
+      "semesters": [
+        "2024-2",
+        "2023-2",
+        "2022-2"
+      ]
+    },
+    {
+      "title": "독서지도실습",
+      "code": "LIS2061",
+      "level": "학부",
+      "count": 3,
+      "students": 22,
+      "semesters": [
+        "2025-2",
+        "2023-2",
+        "2022-2"
+      ]
+    },
+    {
+      "title": "디지털리터러시",
+      "code": "GR50019",
+      "level": "대학원",
+      "count": 3,
+      "students": 22,
+      "semesters": [
+        "2025-1",
+        "2023-2",
+        "2022-2"
+      ]
+    },
+    {
+      "title": "독서문화연구",
+      "code": "PGR5245",
+      "level": "학부",
+      "count": 2,
+      "students": 24,
+      "semesters": [
+        "2023-2",
+        "2022-2"
+      ]
+    },
+    {
+      "title": "핵심취·창업전략",
+      "code": "UNV5086",
+      "level": "교양",
+      "count": 1,
+      "students": 72,
+      "semesters": [
+        "2026-2"
+      ]
+    },
+    {
+      "title": "웹정보구조론",
+      "code": "LIS4046",
+      "level": "학부",
+      "count": 1,
+      "students": 31,
+      "semesters": [
+        "2024-2"
+      ]
+    },
+    {
+      "title": "공공도서관운영론",
+      "code": "LIS4031",
+      "level": "학부",
+      "count": 1,
+      "students": 29,
+      "semesters": [
+        "2025-2"
+      ]
+    },
+    {
+      "title": "문헌분류론",
+      "code": "LIS1004",
+      "level": "학부",
+      "count": 1,
+      "students": 28,
+      "semesters": [
+        "2025-2"
+      ]
+    },
+    {
+      "title": "정보문해론",
+      "code": "LIS4027",
+      "level": "학부",
+      "count": 1,
+      "students": 15,
+      "semesters": [
+        "2025-1"
+      ]
+    },
+    {
+      "title": "글로컬문화콘텐츠개발(캡스톤디자인)",
+      "code": "GR26348",
+      "level": "대학원",
+      "count": 1,
+      "students": 9,
+      "semesters": [
+        "2026-1"
+      ]
+    },
+    {
+      "title": "메타데이터와아카이빙연구",
+      "code": "GR26342",
+      "level": "대학원",
+      "count": 1,
+      "students": 9,
+      "semesters": [
+        "2026-2"
+      ]
+    },
+    {
+      "title": "AI독서리터러시",
+      "code": "LIS4059",
+      "level": "학부",
+      "count": 1,
+      "students": 7,
+      "semesters": [
+        "2026-2"
+      ]
+    },
+    {
+      "title": "멀티미디어독서론",
+      "code": "LIS4032",
+      "level": "학부",
+      "count": 1,
+      "students": 7,
+      "semesters": [
+        "2026-1"
+      ]
+    },
+    {
+      "title": "문화콘텐츠탐사및디자인",
+      "code": "GR24226",
+      "level": "대학원",
+      "count": 1,
+      "students": 6,
+      "semesters": [
+        "2024-1"
+      ]
+    },
+    {
+      "title": "독서교육이론",
+      "code": "GR21564",
+      "level": "대학원",
+      "count": 1,
+      "students": 4,
+      "semesters": [
+        "2024-2"
+      ]
+    },
+    {
+      "title": "문헌정보학비교연구",
+      "code": "GR26343",
+      "level": "대학원",
+      "count": 1,
+      "students": 2,
+      "semesters": [
+        "2026-1"
+      ]
+    }
+  ],
+  "semesters": [
+    {
+      "id": "2026-2",
+      "year": 2026,
+      "term": 2,
+      "label": "2026학년도 2학기",
+      "courseCount": 3,
+      "students": 88,
+      "hours": 8,
+      "courses": [
+        {
+          "title": "AI독서리터러시",
+          "code": "LIS4059",
+          "section": "1",
+          "level": "학부",
+          "room": "사회214호",
+          "capacity": 30,
+          "enrolled": 7,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                1,
+                2
+              ],
+              "time": "09:00–10:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                1,
+                2
+              ],
+              "time": "09:00–10:50"
+            }
+          ],
+          "when": "월 09:00–10:50 · 수 09:00–10:50",
+          "hours": 4
+        },
+        {
+          "title": "핵심취·창업전략",
+          "code": "UNV5086",
+          "section": "7",
+          "level": "교양",
+          "room": "사회대별관11호",
+          "capacity": 100,
+          "enrolled": 72,
+          "mode": "",
+          "slots": [
+            {
+              "day": "수",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "16:00–17:50"
+            }
+          ],
+          "when": "수 16:00–17:50",
+          "hours": 2
+        },
+        {
+          "title": "메타데이터와아카이빙연구",
+          "code": "GR26342",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회328호",
+          "capacity": 65,
+          "enrolled": 9,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "목",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "목 19:30–22:15",
+          "hours": 2
+        }
+      ],
+      "source": "박주현 2026년 2학기 강의시간표.pdf"
+    },
+    {
+      "id": "2026-1",
+      "year": 2026,
+      "term": 1,
+      "label": "2026학년도 1학기",
+      "courseCount": 4,
+      "students": 56,
+      "hours": 10,
+      "courses": [
+        {
+          "title": "멀티미디어독서론",
+          "code": "LIS4032",
+          "section": "1",
+          "level": "학부",
+          "room": "사회214호",
+          "capacity": 30,
+          "enrolled": 7,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                7,
+                8
+              ],
+              "time": "15:00–16:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                7
+              ],
+              "time": "15:00–15:50"
+            }
+          ],
+          "when": "월 15:00–16:50 · 수 15:00–15:50",
+          "hours": 3
+        },
+        {
+          "title": "문헌정보학개론",
+          "code": "LIS1001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 65,
+          "enrolled": 38,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                1
+              ],
+              "time": "09:00–10:15"
+            },
+            {
+              "day": "목",
+              "periods": [
+                1
+              ],
+              "time": "09:00–10:15"
+            }
+          ],
+          "when": "화 09:00–10:15 · 목 09:00–10:15",
+          "hours": 2
+        },
+        {
+          "title": "글로컬문화콘텐츠개발(캡스톤디자인)",
+          "code": "GR26348",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회224호",
+          "capacity": 40,
+          "enrolled": 9,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "목",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "목 19:30–22:15",
+          "hours": 2
+        },
+        {
+          "title": "문헌정보학비교연구",
+          "code": "GR26343",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회214호",
+          "capacity": 30,
+          "enrolled": 2,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "수",
+              "periods": [
+                11,
+                12,
+                13
+              ],
+              "time": "19:00–21:50"
+            }
+          ],
+          "when": "수 19:00–21:50",
+          "hours": 3
+        }
+      ],
+      "source": "박주현 2026년 1학기 강의시간표.pdf"
+    },
+    {
+      "id": "2025-2",
+      "year": 2025,
+      "term": 2,
+      "label": "2025학년도 2학기",
+      "courseCount": 4,
+      "students": 76,
+      "hours": 12,
+      "courses": [
+        {
+          "title": "공공도서관운영론",
+          "code": "LIS4031",
+          "section": "1",
+          "level": "학부",
+          "room": "사회214호",
+          "capacity": 30,
+          "enrolled": 29,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                7,
+                8
+              ],
+              "time": "15:00–16:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                7
+              ],
+              "time": "15:00–15:50"
+            }
+          ],
+          "when": "월 15:00–16:50 · 수 15:00–15:50",
+          "hours": 3
+        },
+        {
+          "title": "독서지도실습",
+          "code": "LIS2061",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 5,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                1,
+                2
+              ],
+              "time": "09:00–10:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                1,
+                2
+              ],
+              "time": "09:00–10:50"
+            }
+          ],
+          "when": "월 09:00–10:50 · 수 09:00–10:50",
+          "hours": 4
+        },
+        {
+          "title": "문헌분류론",
+          "code": "LIS1004",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 28,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                4
+              ],
+              "time": "13:30–14:45"
+            },
+            {
+              "day": "목",
+              "periods": [
+                4
+              ],
+              "time": "13:30–14:45"
+            }
+          ],
+          "when": "화 13:30–14:45 · 목 13:30–14:45",
+          "hours": 2
+        },
+        {
+          "title": "기록관리이론연구",
+          "code": "GR23187",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 14,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "수",
+              "periods": [
+                11,
+                12,
+                13
+              ],
+              "time": "19:00–21:50"
+            }
+          ],
+          "when": "수 19:00–21:50",
+          "hours": 3
+        }
+      ],
+      "source": "박주현 2025년 2학기 강의시간표.pdf"
+    },
+    {
+      "id": "2025-1",
+      "year": 2025,
+      "term": 1,
+      "label": "2025학년도 1학기",
+      "courseCount": 3,
+      "students": 55,
+      "hours": 8,
+      "courses": [
+        {
+          "title": "문헌정보학개론",
+          "code": "LIS1001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 35,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                3,
+                4
+              ],
+              "time": "11:00–12:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                3
+              ],
+              "time": "11:00–11:50"
+            }
+          ],
+          "when": "월 11:00–12:50 · 수 11:00–11:50",
+          "hours": 3
+        },
+        {
+          "title": "정보문해론",
+          "code": "LIS4027",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 15,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                7,
+                8
+              ],
+              "time": "15:00–16:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                7
+              ],
+              "time": "15:00–15:50"
+            }
+          ],
+          "when": "월 15:00–16:50 · 수 15:00–15:50",
+          "hours": 3
+        },
+        {
+          "title": "디지털리터러시",
+          "code": "GR50019",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회214호",
+          "capacity": 30,
+          "enrolled": 5,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "목",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "목 19:30–22:15",
+          "hours": 2
+        }
+      ],
+      "source": "박주현 2025학년도 1학기 강의시간표.pdf"
+    },
+    {
+      "id": "2024-2",
+      "year": 2024,
+      "term": 2,
+      "label": "2024학년도 2학기",
+      "courseCount": 4,
+      "students": 59,
+      "hours": 9,
+      "courses": [
+        {
+          "title": "도서관기획론",
+          "code": "LIS4034",
+          "section": "1",
+          "level": "학부",
+          "room": "사회224호",
+          "capacity": 40,
+          "enrolled": 6,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                1
+              ],
+              "time": "09:00–10:15"
+            },
+            {
+              "day": "목",
+              "periods": [
+                1
+              ],
+              "time": "09:00–10:15"
+            }
+          ],
+          "when": "화 09:00–10:15 · 목 09:00–10:15",
+          "hours": 2
+        },
+        {
+          "title": "웹정보구조론",
+          "code": "LIS4046",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 31,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                3
+              ],
+              "time": "12:00–13:15"
+            },
+            {
+              "day": "목",
+              "periods": [
+                3
+              ],
+              "time": "12:00–13:15"
+            }
+          ],
+          "when": "화 12:00–13:15 · 목 12:00–13:15",
+          "hours": 2
+        },
+        {
+          "title": "기록관리이론연구",
+          "code": "GR23187",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회425호",
+          "capacity": 20,
+          "enrolled": 18,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "목",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "목 19:30–22:15",
+          "hours": 2
+        },
+        {
+          "title": "독서교육이론",
+          "code": "GR21564",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회425호",
+          "capacity": 20,
+          "enrolled": 4,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "수",
+              "periods": [
+                11,
+                12,
+                13
+              ],
+              "time": "19:00–21:50"
+            }
+          ],
+          "when": "수 19:00–21:50",
+          "hours": 3
+        }
+      ],
+      "source": "박주현 2024학년도 2학기 강의시간표.pdf"
+    },
+    {
+      "id": "2024-1",
+      "year": 2024,
+      "term": 1,
+      "label": "2024학년도 1학기",
+      "courseCount": 4,
+      "students": 72,
+      "hours": 10,
+      "courses": [
+        {
+          "title": "데이터베이스론",
+          "code": "LIS3004",
+          "section": "1",
+          "level": "학부",
+          "room": "사회224호",
+          "capacity": 40,
+          "enrolled": 15,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                2
+              ],
+              "time": "10:30–11:45"
+            },
+            {
+              "day": "목",
+              "periods": [
+                2
+              ],
+              "time": "10:30–11:45"
+            }
+          ],
+          "when": "화 10:30–11:45 · 목 10:30–11:45",
+          "hours": 2
+        },
+        {
+          "title": "독서지도론",
+          "code": "LIS2001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 14,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                7,
+                8
+              ],
+              "time": "15:00–16:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                7
+              ],
+              "time": "15:00–15:50"
+            }
+          ],
+          "when": "월 15:00–16:50 · 수 15:00–15:50",
+          "hours": 3
+        },
+        {
+          "title": "문헌정보학개론",
+          "code": "LIS1001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 37,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                3,
+                4
+              ],
+              "time": "11:00–12:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                3
+              ],
+              "time": "11:00–11:50"
+            }
+          ],
+          "when": "월 11:00–12:50 · 수 11:00–11:50",
+          "hours": 3
+        },
+        {
+          "title": "문화콘텐츠탐사및디자인",
+          "code": "GR24226",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회425호",
+          "capacity": 20,
+          "enrolled": 6,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "목",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "목 19:30–22:15",
+          "hours": 2
+        }
+      ],
+      "source": "박주현 2024년 1학기 강의시간표.pdf"
+    },
+    {
+      "id": "2023-2",
+      "year": 2023,
+      "term": 2,
+      "label": "2023학년도 2학기",
+      "courseCount": 4,
+      "students": 43,
+      "hours": 10,
+      "courses": [
+        {
+          "title": "도서관기획론",
+          "code": "LIS4034",
+          "section": "1",
+          "level": "학부",
+          "room": "사회224호",
+          "capacity": 40,
+          "enrolled": 13,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                2
+              ],
+              "time": "10:30–11:45"
+            },
+            {
+              "day": "목",
+              "periods": [
+                2
+              ],
+              "time": "10:30–11:45"
+            }
+          ],
+          "when": "화 10:30–11:45 · 목 10:30–11:45",
+          "hours": 2
+        },
+        {
+          "title": "독서문화연구",
+          "code": "PGR5245",
+          "section": "1",
+          "level": "학부",
+          "room": "사회대별관24호",
+          "capacity": 60,
+          "enrolled": 15,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "화 19:30–22:15",
+          "hours": 2
+        },
+        {
+          "title": "독서지도실습",
+          "code": "LIS2061",
+          "section": "1",
+          "level": "학부",
+          "room": "사회214호",
+          "capacity": 30,
+          "enrolled": 13,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                7,
+                8
+              ],
+              "time": "15:00–16:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                7,
+                8
+              ],
+              "time": "15:00–16:50"
+            }
+          ],
+          "when": "월 15:00–16:50 · 수 15:00–16:50",
+          "hours": 4
+        },
+        {
+          "title": "디지털리터러시",
+          "code": "GR24220",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회423호",
+          "capacity": 20,
+          "enrolled": 2,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "목",
+              "periods": [
+                8,
+                9
+              ],
+              "time": "19:30–22:15"
+            }
+          ],
+          "when": "목 19:30–22:15",
+          "hours": 2
+        }
+      ],
+      "source": "박주현 2023년 2학기 강의시간표.pdf"
+    },
+    {
+      "id": "2023-1",
+      "year": 2023,
+      "term": 1,
+      "label": "2023학년도 1학기",
+      "courseCount": 4,
+      "students": 104,
+      "hours": 9,
+      "courses": [
+        {
+          "title": "데이터베이스론",
+          "code": "LIS3004",
+          "section": "1",
+          "level": "학부",
+          "room": "사회대별관31호",
+          "capacity": 114,
+          "enrolled": 29,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                4
+              ],
+              "time": "13:30–14:45"
+            },
+            {
+              "day": "목",
+              "periods": [
+                4
+              ],
+              "time": "13:30–14:45"
+            }
+          ],
+          "when": "화 13:30–14:45 · 목 13:30–14:45",
+          "hours": 2
+        },
+        {
+          "title": "독서지도론",
+          "code": "LIS2001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회대별관31호",
+          "capacity": 114,
+          "enrolled": 19,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                1
+              ],
+              "time": "09:00–10:15"
+            },
+            {
+              "day": "목",
+              "periods": [
+                1
+              ],
+              "time": "09:00–10:15"
+            }
+          ],
+          "when": "화 09:00–10:15 · 목 09:00–10:15",
+          "hours": 2
+        },
+        {
+          "title": "문헌정보학개론",
+          "code": "LIS1001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 44,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                5
+              ],
+              "time": "15:00–16:15"
+            },
+            {
+              "day": "목",
+              "periods": [
+                5
+              ],
+              "time": "15:00–16:15"
+            }
+          ],
+          "when": "화 15:00–16:15 · 목 15:00–16:15",
+          "hours": 2
+        },
+        {
+          "title": "기록관리이론연구",
+          "code": "GR23187",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회251호",
+          "capacity": 24,
+          "enrolled": 12,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "수",
+              "periods": [
+                11,
+                12,
+                13
+              ],
+              "time": "19:00–21:50"
+            }
+          ],
+          "when": "수 19:00–21:50",
+          "hours": 3
+        }
+      ],
+      "source": "박주현 2023년 1학기 강의시간표.pdf"
+    },
+    {
+      "id": "2022-2",
+      "year": 2022,
+      "term": 2,
+      "label": "2022학년도 2학기",
+      "courseCount": 4,
+      "students": 36,
+      "hours": 12,
+      "courses": [
+        {
+          "title": "도서관기획론",
+          "code": "LIS4034",
+          "section": "1",
+          "level": "학부",
+          "room": "사회대별관13호",
+          "capacity": 56,
+          "enrolled": 8,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                3
+              ],
+              "time": "12:00–13:15"
+            },
+            {
+              "day": "목",
+              "periods": [
+                3
+              ],
+              "time": "12:00–13:15"
+            }
+          ],
+          "when": "화 12:00–13:15 · 목 12:00–13:15",
+          "hours": 2
+        },
+        {
+          "title": "독서문화연구",
+          "code": "PGR5245",
+          "section": "1",
+          "level": "학부",
+          "room": "사회대별관24호",
+          "capacity": 60,
+          "enrolled": 9,
+          "mode": "",
+          "slots": [
+            {
+              "day": "수",
+              "periods": [
+                11,
+                12,
+                13
+              ],
+              "time": "19:00–21:50"
+            }
+          ],
+          "when": "수 19:00–21:50",
+          "hours": 3
+        },
+        {
+          "title": "독서지도실습",
+          "code": "LIS2061",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 4,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                1,
+                2
+              ],
+              "time": "09:00–10:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                1,
+                2
+              ],
+              "time": "09:00–10:50"
+            }
+          ],
+          "when": "월 09:00–10:50 · 수 09:00–10:50",
+          "hours": 4
+        },
+        {
+          "title": "디지털리터러시",
+          "code": "GR24220",
+          "section": "1",
+          "level": "대학원",
+          "room": "사회274호",
+          "capacity": 70,
+          "enrolled": 15,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                11,
+                12,
+                13
+              ],
+              "time": "19:00–21:50"
+            }
+          ],
+          "when": "월 19:00–21:50",
+          "hours": 3
+        }
+      ],
+      "source": "박주현 2022년 2학기 강의시간표.pdf"
+    },
+    {
+      "id": "2022-1",
+      "year": 2022,
+      "term": 1,
+      "label": "2022학년도 1학기",
+      "courseCount": 2,
+      "students": 34,
+      "hours": 5,
+      "courses": [
+        {
+          "title": "데이터베이스론",
+          "code": "LIS3004",
+          "section": "1",
+          "level": "학부",
+          "room": "사회대별관12호",
+          "capacity": 100,
+          "enrolled": 7,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "화",
+              "periods": [
+                2
+              ],
+              "time": "10:30–11:45"
+            },
+            {
+              "day": "목",
+              "periods": [
+                2
+              ],
+              "time": "10:30–11:45"
+            }
+          ],
+          "when": "화 10:30–11:45 · 목 10:30–11:45",
+          "hours": 2
+        },
+        {
+          "title": "독서지도론",
+          "code": "LIS2001",
+          "section": "1",
+          "level": "학부",
+          "room": "사회328호",
+          "capacity": 80,
+          "enrolled": 27,
+          "mode": "대면수업",
+          "slots": [
+            {
+              "day": "월",
+              "periods": [
+                3,
+                4
+              ],
+              "time": "11:00–12:50"
+            },
+            {
+              "day": "수",
+              "periods": [
+                3
+              ],
+              "time": "11:00–11:50"
+            }
+          ],
+          "when": "월 11:00–12:50 · 수 11:00–11:50",
+          "hours": 3
+        }
+      ],
+      "source": "박주현 2022년 1학기 강의시간표.pdf"
+    }
+  ]
+}

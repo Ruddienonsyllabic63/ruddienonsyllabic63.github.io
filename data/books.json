@@ -1,0 +1,89 @@
+{
+  "_안내": "tools/import-kci.py 가 KCI 엑셀에서 자동으로 만든 파일입니다.",
+  "items": [
+    {
+      "title": "몽골의 시간을 품은 20가지 보물",
+      "publisher": "국립몽골박물관, 국립아시아문화전당, 전남대학교",
+      "authors": "허은아",
+      "year": 2025,
+      "month": 12
+    },
+    {
+      "title": "20 Treasures-Holding Mongolia`s Time",
+      "publisher": "몽골국립박물관, 국립아시아문화전당, 전남대학교",
+      "authors": "허진아",
+      "year": 2025,
+      "month": 12
+    },
+    {
+      "title": "고등학교 미디어정보리터러시",
+      "publisher": "광주광역시교육청",
+      "authors": "",
+      "year": 2025,
+      "month": 3
+    },
+    {
+      "title": "(2022 개정 교육과정 체계에 따른) 도서관과 정보생활 교육과정 - 멀티 리터러시 기반의 정보활용교육",
+      "publisher": "한국도서관협회",
+      "authors": "",
+      "year": 2025,
+      "month": 2
+    },
+    {
+      "title": "라오스 국립도서관 활동북",
+      "publisher": "전남대학교출판문화원",
+      "authors": "",
+      "year": 2024,
+      "month": 12
+    },
+    {
+      "title": "라오스 국립박물관 활동북",
+      "publisher": "전남대학교출판문화원",
+      "authors": "",
+      "year": 2024,
+      "month": 12
+    },
+    {
+      "title": "독서교육의 이론과 실제",
+      "publisher": "한국도서관협회",
+      "authors": "한국문헌정보학회 독",
+      "year": 2024,
+      "month": 7
+    },
+    {
+      "title": "사서교사 양성체제 방안 연구",
+      "publisher": "문화체육관광부",
+      "authors": "박주현",
+      "year": 2022,
+      "month": 3
+    },
+    {
+      "title": "도서관 기반 미디어 리터러시 교수학습자료집",
+      "publisher": "전남대학교출판문화원",
+      "authors": "",
+      "year": 2021,
+      "month": 12
+    },
+    {
+      "title": "도서관 기반 미디어 리터러시 교수학습자료집 : 교수학습 예시 자료",
+      "publisher": "국립중앙도서관",
+      "authors": "이명규, 박주현 등",
+      "year": 2021,
+      "month": null
+    },
+    {
+      "title": "진로독서교육의 이해와 실제",
+      "publisher": "태일사",
+      "authors": "방숙영, 박주현 등",
+      "year": 2016,
+      "month": null
+    },
+    {
+      "title": "(아동독서지도에 필요한) 독서태도 검사의 이해와 실제",
+      "publisher": "전남대학교 출판부",
+      "authors": "박주현, 이명규 공저",
+      "year": 2016,
+      "month": null
+    }
+  ]
+}

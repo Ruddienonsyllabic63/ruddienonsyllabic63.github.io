@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>과목 안내 | 박주현</title>
+<meta name="description" content="과목 개요와 주차별 계획, 결과물 제출과 갤러리.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3a5f'/%3E%3Cpath d='M9 8h6.2c.9 0 1.8.7 1.8 1.7V24c0-.9-.8-1.6-1.8-1.6H9z' fill='%23fbfaf6'/%3E%3Cpath d='M23 8h-6.2c-.9 0-1.8.7-1.8 1.7V24c0-.9.8-1.6 1.8-1.6H23z' fill='%23a8742f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">박주현<small>전남대학교 문헌정보학과</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기">☰</button>
+    <nav class="nav" id="nav">
+      <a href="about.html">소개</a>
+      <a href="research.html">연구</a>
+      <a href="courses.html">수업</a>
+      <a href="gallery.html">결과물</a>
+      <a href="surveys.html">설문</a>
+      <button class="theme-toggle" type="button"></button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="wrap">
+      <p class="muted">불러오는 중…</p>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/layout.js"></script>
+<script>
+(function () {
+  const id = param('id');
+  const main = document.getElementById('main');
+
+  if (!id) { notFound('주소에 과목이 지정되지 않았습니다.'); return; }
+
+  fetch('data/courses.json')
+    .then((r) => r.json())
+    .then(({ courses }) => {
+      const c = (courses || []).find((x) => x.id === id);
+      if (!c) { notFound('요청하신 과목을 찾을 수 없습니다.'); return; }
+      document.title = `${c.title} | 박주현`;
+      render(c);
+    })
+    .catch(() => notFound('과목 정보를 불러오지 못했습니다.'));
+
+  function notFound(msg) {
+    main.innerHTML = `
+      <section class="section"><div class="wrap">
+        <div class="empty">
+          <div class="empty__icon">📕</div>
+          <p>${esc(msg)}</p>
+          <a class="btn btn--ghost btn--sm" href="courses.html">수업 목록으로</a>
+        </div>
+      </div></section>`;
+  }
+
+  function render(c) {
+    const weeks = (c.weeks || []).map((w) => `
+      <li><span class="w-no">${esc(w.no)}</span><span>${esc(w.title)}${w.note ? ` <span class="muted small">— ${esc(w.note)}</span>` : ''}</span></li>`).join('');
+
+    const goals = (c.goals || []).map((g) => `<li>${esc(g)}</li>`).join('');
+
+    main.innerHTML = `
+    <section class="section">
+      <div class="wrap">
+        <p class="small"><a href="courses.html">← 수업 목록</a></p>
+        <span class="course-card__term">${esc(c.term)}${c.current ? ' · 진행 중' : ''}</span>
+        <h1 style="font-family:var(--font-serif); margin-top:.3rem">${esc(c.title)}</h1>
+        <p class="muted" style="margin-bottom:1.4rem">${esc(c.target || '')}${c.schedule ? ' · ' + esc(c.schedule) : ''}</p>
+        <p style="max-width:60ch; font-size:1.05rem; color:var(--ink-soft)">${esc(c.summary || '')}</p>
+        ${c.notice ? `<div class="notice notice--warn" style="max-width:60ch"><strong>수강 전 확인</strong>${esc(c.notice)}</div>` : ''}
+
+        <div class="row" style="margin-top:1.6rem">
+          <a class="btn" href="upload.html?course=${encodeURIComponent(c.id)}">결과물 올리기</a>
+          <a class="btn btn--ghost" href="gallery.html?course=${encodeURIComponent(c.id)}">결과물 갤러리</a>
+          ${c.surveyUrl ? `<a class="btn btn--ghost" href="${esc(c.surveyUrl)}" target="_blank" rel="noopener">수업 설문 참여</a>` : ''}
+        </div>
+      </div>
+    </section>
+
+    ${goals ? `
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>학습 목표</h2></div>
+        <ul style="max-width:60ch; padding-left:1.2rem">${goals}</ul>
+      </div>
+    </section>` : ''}
+
+    ${weeks ? `
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>주차별 계획</h2>
+          <p>수업 진행에 따라 일부 조정될 수 있습니다.</p>
+        </div>
+        <ul class="weeks">${weeks}</ul>
+      </div>
+    </section>` : ''}
+
+    <section class="section">
+      <div class="wrap">
+        <div class="card" style="background:var(--navy-wash); border-color:color-mix(in srgb, var(--navy) 22%, transparent)">
+          <p class="eyebrow">제출 안내</p>
+          <h2 style="font-family:var(--font-serif); margin-bottom:.6rem">결과물 제출 방법</h2>
+          <ol style="max-width:60ch; padding-left:1.2rem; margin-bottom:1.2rem">
+            <li>수업 시간에 안내한 <strong>수업 코드</strong>를 준비합니다.</li>
+            <li>‘결과물 올리기’에서 과목을 고르고 코드를 입력합니다.</li>
+            <li>파일을 올리거나(문서·발표자료·이미지) 링크를 붙여 넣습니다(영상·웹 결과물).</li>
+            <li>공개 범위를 고릅니다. <strong>수업 안에서만</strong> 또는 <strong>모두에게 공개</strong>.</li>
+          </ol>
+          ${c.output ? `<p class="small mb-0"><strong>이번 학기 결과물:</strong> ${esc(c.output)}</p>` : ''}
+        </div>
+      </div>
+    </section>`;
+  }
+})();
+</script>
+</body>
+</html>

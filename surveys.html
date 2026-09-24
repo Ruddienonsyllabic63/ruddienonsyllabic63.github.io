@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>설문 | 박주현</title>
+<meta name="description" content="수업 설문과 연수 만족도 조사 — 구글 폼으로 진행합니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3a5f'/%3E%3Cpath d='M9 8h6.2c.9 0 1.8.7 1.8 1.7V24c0-.9-.8-1.6-1.8-1.6H9z' fill='%23fbfaf6'/%3E%3Cpath d='M23 8h-6.2c-.9 0-1.8.7-1.8 1.7V24c0-.9.8-1.6 1.8-1.6H23z' fill='%23a8742f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">박주현<small>전남대학교 문헌정보학과</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기">☰</button>
+    <nav class="nav" id="nav">
+      <a href="about.html">소개</a>
+      <a href="research.html">연구</a>
+      <a href="courses.html">수업</a>
+      <a href="gallery.html">결과물</a>
+      <a href="surveys.html">설문</a>
+      <button class="theme-toggle" type="button"></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">SURVEYS</p>
+      <h1 style="font-family:var(--font-serif)">설문</h1>
+      <p style="max-width:58ch; font-size:1.05rem; color:var(--ink-soft)">
+        수업 사전·중간 설문과 연수 만족도 조사입니다. 응답은 구글 폼으로 수집하며,
+        수업 개선과 연구 목적으로만 사용합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div id="open-wrap">
+        <div class="section-head"><h2>진행 중인 설문</h2></div>
+        <div class="grid grid-2" id="open-list"><p class="muted">불러오는 중…</p></div>
+      </div>
+
+      <div id="closed-wrap" style="margin-top:3rem; display:none">
+        <div class="section-head"><h2>마감된 설문</h2></div>
+        <div class="grid grid-2" id="closed-list"></div>
+      </div>
+
+      <div id="embed-area" style="margin-top:3rem"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/layout.js"></script>
+<script>
+(function () {
+  let courses = {};
+
+  Promise.all([
+    fetch('data/surveys.json').then((r) => r.json()),
+    fetch('data/courses.json').then((r) => r.json()).catch(() => ({ courses: [] })),
+  ])
+    .then(([sData, cData]) => {
+      (cData.courses || []).forEach((c) => { courses[c.id] = c.title; });
+      const list = sData.surveys || [];
+      const open = list.filter((s) => s.status !== 'closed');
+      const closed = list.filter((s) => s.status === 'closed');
+
+      document.getElementById('open-list').innerHTML = open.length
+        ? open.map(card).join('')
+        : '<p class="muted">진행 중인 설문이 없습니다.</p>';
+
+      if (closed.length) {
+        document.getElementById('closed-wrap').style.display = '';
+        document.getElementById('closed-list').innerHTML = closed.map(card).join('');
+      }
+
+      // 페이지 안에 펼쳐 보이도록 설정된 설문
+      const embeds = open.filter((s) => s.embed && s.url);
+      if (embeds.length) {
+        document.getElementById('embed-area').innerHTML = embeds.map((s) => `
+          <div class="section-head" style="margin-top:2rem"><h2>${esc(s.title)}</h2></div>
+          <div class="card" style="padding:0; overflow:hidden">
+            <iframe src="${esc(s.url)}" width="100%" height="900"
+                    style="border:0; display:block; background:#fff"
+                    title="${esc(s.title)}" loading="lazy">설문을 불러오는 중…</iframe>
+          </div>`).join('');
+      }
+    })
+    .catch(() => {
+      document.getElementById('open-list').innerHTML =
+        '<p class="muted">설문 정보를 불러오지 못했습니다.</p>';
+    });
+
+  function card(s) {
+    const closed = s.status === 'closed';
+    const courseName = s.course && courses[s.course] ? courses[s.course] : '';
+    const ready = Boolean(s.url);
+
+    let action;
+    if (closed) {
+      action = '<span class="btn btn--ghost btn--sm" aria-disabled="true" style="opacity:.55; pointer-events:none">마감되었습니다</span>';
+    } else if (ready) {
+      action = `<a class="btn btn--sm" href="${esc(s.url)}" target="_blank" rel="noopener">설문 참여하기</a>`;
+    } else {
+      action = '<span class="small muted">주소 등록 전입니다 — data/surveys.json 의 url 을 채워 주세요.</span>';
+    }
+
+    return `
+    <article class="card course-card${closed ? ' card--flat' : ''}">
+      ${courseName ? `<span class="course-card__term">${esc(courseName)}</span>` : ''}
+      <h3 class="course-card__title">${esc(s.title)}</h3>
+      <p class="small muted" style="margin:0">${esc(s.audience || '')}${s.due ? ' · 마감 ' + esc(s.due) : ''}</p>
+      <p class="small" style="margin:.4rem 0 0; color:var(--ink-soft)">${esc(s.description || '')}</p>
+      <div class="course-card__links">${action}</div>
+    </article>`;
+  }
+})();
+</script>
+</body>
+</html>

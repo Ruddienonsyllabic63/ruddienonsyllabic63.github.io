@@ -1,0 +1,35 @@
+# Supabase 무료 플랜은 7일 동안 접속이 없으면 프로젝트가 잠깁니다.
+# 3일에 한 번 가볍게 한 번 찔러서 잠기지 않게 합니다.
+#
+# 쓰기 전에 GitHub 저장소에 값 두 개를 등록하세요.
+#   Settings → Secrets and variables → Actions → New repository secret
+#     SUPABASE_URL       예) https://abcdefgh.supabase.co
+#     SUPABASE_ANON_KEY  anon 키
+name: Supabase 깨워 두기
+
+on:
+  schedule:
+    - cron: '0 3 */3 * *'   # 3일마다 (UTC 03:00 = 한국시간 정오)
+  workflow_dispatch:         # 필요하면 손으로도 실행할 수 있습니다
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Supabase 에 접속해 보기
+        env:
+          URL: ${{ secrets.SUPABASE_URL }}
+          KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$URL" ] || [ -z "$KEY" ]; then
+            echo "SUPABASE_URL / SUPABASE_ANON_KEY 가 등록되지 않아 건너뜁니다."
+            exit 0
+          fi
+          code=$(curl -s -o /dev/null -w '%{http_code}' \
+            "$URL/rest/v1/submissions?select=id&limit=1" \
+            -H "apikey: $KEY" -H "Authorization: Bearer $KEY")
+          echo "응답 코드: $code"
+          case "$code" in
+            2*|4*) echo "프로젝트가 살아 있습니다."; exit 0 ;;
+            *)     echo "응답이 이상합니다. 대시보드를 확인해 주세요."; exit 1 ;;
+          esac

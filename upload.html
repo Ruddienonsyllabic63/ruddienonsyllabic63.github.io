@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>결과물 올리기 | 박주현</title>
+<meta name="description" content="수업 결과물 제출 — 파일 또는 링크로 올립니다.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3a5f'/%3E%3Cpath d='M9 8h6.2c.9 0 1.8.7 1.8 1.7V24c0-.9-.8-1.6-1.8-1.6H9z' fill='%23fbfaf6'/%3E%3Cpath d='M23 8h-6.2c-.9 0-1.8.7-1.8 1.7V24c0-.9.8-1.6 1.8-1.6H23z' fill='%23a8742f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">박주현<small>전남대학교 문헌정보학과</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기">☰</button>
+    <nav class="nav" id="nav">
+      <a href="about.html">소개</a>
+      <a href="research.html">연구</a>
+      <a href="courses.html">수업</a>
+      <a href="gallery.html">결과물</a>
+      <a href="surveys.html">설문</a>
+      <button class="theme-toggle" type="button"></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap wrap-narrow">
+      <p class="eyebrow">SUBMIT</p>
+      <h1 style="font-family:var(--font-serif)">결과물 올리기</h1>
+      <p style="color:var(--ink-soft)">
+        수업에서 만든 결과물을 올립니다. 파일로 올리거나, 영상·웹 결과물은 링크로 제출하세요.
+      </p>
+
+      <div id="demo-banner" style="display:none; margin-bottom:1.6rem">
+        <div class="notice notice--warn">
+          <strong>지금은 데모 모드입니다</strong>
+          올린 내용이 이 브라우저에만 저장됩니다. 화면 동작을 확인하는 용도로 자유롭게 써 보세요.
+        </div>
+      </div>
+
+      <form id="form" novalidate>
+
+        <!-- 1. 과목 -->
+        <div class="field">
+          <label for="course">과목 <span style="color:var(--danger)">*</span></label>
+          <select id="course" required>
+            <option value="">과목을 고르세요</option>
+          </select>
+        </div>
+
+        <!-- 2. 수업 코드 -->
+        <div class="field" id="code-field" style="display:none">
+          <label for="code">수업 코드 <span style="color:var(--danger)">*</span></label>
+          <div class="row" style="flex-wrap:nowrap">
+            <input type="text" id="code" autocomplete="off" placeholder="수업 시간에 안내된 코드">
+            <button class="btn btn--ghost" type="button" id="code-check" style="flex:none">확인</button>
+          </div>
+          <p class="hint" id="code-msg">코드를 확인해야 제출할 수 있습니다.</p>
+        </div>
+
+        <div id="rest" style="display:none">
+          <hr>
+
+          <!-- 3. 제출 방식 -->
+          <div class="field">
+            <label>제출 방식 <span style="color:var(--danger)">*</span></label>
+            <div class="radio-row">
+              <label class="radio-card">
+                <input type="radio" name="kind" value="file" checked>
+                <span><strong>파일로 올리기</strong>
+                  <span>보고서·발표자료·포스터·이미지</span></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="kind" value="link">
+                <span><strong>링크로 제출</strong>
+                  <span>유튜브 영상, 노션·카드뉴스 등</span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field" id="file-field">
+            <label for="file">파일 <span style="color:var(--danger)">*</span></label>
+            <input type="file" id="file">
+            <p class="hint" id="file-hint"></p>
+          </div>
+
+          <div class="field" id="link-field" style="display:none">
+            <label for="link">링크 주소 <span style="color:var(--danger)">*</span></label>
+            <input type="url" id="link" placeholder="https://www.youtube.com/watch?v=...">
+            <p class="hint">유튜브 링크를 넣으면 갤러리에 영상 미리보기가 표시됩니다.</p>
+          </div>
+
+          <hr>
+
+          <!-- 4. 내용 -->
+          <div class="field">
+            <label for="title">제목 <span style="color:var(--danger)">*</span></label>
+            <input type="text" id="title" maxlength="80" placeholder="예) 초등 3학년을 위한 책 읽어주기 프로그램">
+          </div>
+
+          <div class="row" style="gap:1rem; align-items:flex-start">
+            <div class="field" style="flex:1 1 200px">
+              <label for="author">이름 <span style="color:var(--danger)">*</span></label>
+              <input type="text" id="author" maxlength="30" placeholder="예) 김전남 (조별이면 조 이름)">
+            </div>
+            <div class="field" style="flex:1 1 140px">
+              <label for="studentno">학번 <span class="muted small">(선택)</span></label>
+              <input type="text" id="studentno" maxlength="20" placeholder="예) 2023123456">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="desc">한 줄 설명 <span class="muted small">(선택)</span></label>
+            <textarea id="desc" maxlength="300" placeholder="어떤 결과물인지 간단히 적어 주세요."></textarea>
+          </div>
+
+          <hr>
+
+          <!-- 5. 공개 범위 -->
+          <div class="field">
+            <label>공개 범위 <span style="color:var(--danger)">*</span></label>
+            <div class="radio-row">
+              <label class="radio-card">
+                <input type="radio" name="visibility" value="class" checked>
+                <span><strong>수업 안에서만</strong>
+                  <span>수업 코드를 아는 사람만 볼 수 있습니다.</span></span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="visibility" value="public">
+                <span><strong>모두에게 공개</strong>
+                  <span>누구나 볼 수 있습니다. 포트폴리오로 쓸 수 있어요.</span></span>
+              </label>
+            </div>
+            <p class="hint">나중에 담당 교수가 공개 범위를 바꿀 수 있습니다.
+               개인정보나 타인의 저작물이 들어 있지 않은지 한 번 더 확인해 주세요.</p>
+          </div>
+
+          <div id="msg" style="margin-bottom:1rem"></div>
+
+          <button class="btn" type="submit" id="submit" style="width:100%; padding:.85rem">제출하기</button>
+        </div>
+      </form>
+
+      <div id="done" style="display:none"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/upload.js"></script>
+</body>
+</html>

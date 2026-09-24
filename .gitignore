@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# 원본 자료 — 사이트에 올리지 않음
+제공 자료/

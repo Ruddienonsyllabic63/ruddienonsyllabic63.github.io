@@ -1,0 +1,46 @@
+{
+  "_안내": [
+    "구글 폼으로 만든 설문을 여기에 등록하면 설문 페이지에 카드로 나타납니다.",
+    "url    : 구글 폼의 '보내기 → 링크' 주소를 넣으세요.",
+    "embed  : true 면 페이지 안에 설문이 그대로 펼쳐집니다.",
+    "         구글 폼 '보내기 → <> (퍼가기 HTML)' 에서 주소를 복사해 넣으면 가장 잘 맞습니다.",
+    "         (보통 .../viewform?embedded=true 형태)",
+    "status : 'open' 진행 중 · 'closed' 마감",
+    "course : 과목 id 를 넣으면 그 과목 설문으로 묶입니다(선택)."
+  ],
+  "surveys": [
+    {
+      "id": "ai-reading-pre",
+      "title": "AI독서리터러시 사전 설문",
+      "course": "ai-reading-2026-2",
+      "audience": "AI독서리터러시 수강생",
+      "description": "수업을 시작하기 전, 여러분의 독서 경험과 AI 도구 사용 경험을 알아보기 위한 설문입니다. 응답은 수업 설계에만 사용합니다.",
+      "url": "",
+      "embed": false,
+      "status": "open",
+      "due": ""
+    },
+    {
+      "id": "ai-reading-mid",
+      "title": "AI독서리터러시 중간 피드백",
+      "course": "ai-reading-2026-2",
+      "audience": "AI독서리터러시 수강생",
+      "description": "수업 절반을 지나며 속도·난이도·과제 부담에 대한 의견을 듣습니다. 익명으로 응답할 수 있습니다.",
+      "url": "",
+      "embed": false,
+      "status": "open",
+      "due": ""
+    },
+    {
+      "id": "lecture-eval",
+      "title": "특강·연수 만족도 조사",
+      "course": "",
+      "audience": "사서교사 연수·외부 특강 참여자",
+      "description": "연수나 특강에 참여하신 분들의 의견을 듣습니다.",
+      "url": "",
+      "embed": false,
+      "status": "open",
+      "due": ""
+    }
+  ]
+}

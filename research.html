@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연구 | 박주현</title>
+<meta name="description" content="박주현 조교수의 학술논문 목록과 연구 주제 — 독서 리터러시, 미디어정보 리터러시, 학교도서관과 정책.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f3a5f'/%3E%3Cpath d='M9 8h6.2c.9 0 1.8.7 1.8 1.7V24c0-.9-.8-1.6-1.8-1.6H9z' fill='%23fbfaf6'/%3E%3Cpath d='M23 8h-6.2c-.9 0-1.8.7-1.8 1.7V24c0-.9.8-1.6 1.8-1.6H23z' fill='%23a8742f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">박주현<small>전남대학교 문헌정보학과</small></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기">☰</button>
+    <nav class="nav" id="nav">
+      <a href="about.html">소개</a>
+      <a href="research.html">연구</a>
+      <a href="courses.html">수업</a>
+      <a href="gallery.html">결과물</a>
+      <a href="surveys.html">설문</a>
+      <button class="theme-toggle" type="button"></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow">RESEARCH</p>
+      <h1 style="font-family:var(--font-serif)">연구</h1>
+      <p style="max-width:58ch; font-size:1.05rem; color:var(--ink-soft)">
+        읽기·리터러시·학교도서관을 잇는 하나의 질문을 여러 각도에서 다뤄 왔습니다.
+        아래 목록은 주제로 묶거나 제목으로 찾아볼 수 있습니다.
+      </p>
+
+      <div class="grid grid-3" style="margin-top:2rem; max-width:620px">
+        <div class="card card--flat" style="text-align:center">
+          <div style="font-size:1.9rem; font-weight:700; color:var(--navy)">46</div>
+          <div class="small muted">KCI 등재 논문</div>
+        </div>
+        <div class="card card--flat" style="text-align:center">
+          <div style="font-size:1.9rem; font-weight:700; color:var(--navy)">307</div>
+          <div class="small muted">총 피인용</div>
+        </div>
+        <div class="card card--flat" style="text-align:center">
+          <div style="font-size:1.9rem; font-weight:700; color:var(--navy)">10</div>
+          <div class="small muted">H지수</div>
+        </div>
+      </div>
+      <p class="small muted" style="margin-top:.7rem">
+        한국학술지인용색인(KCI) 기준 · 평균 피인용 7.1회
+      </p>
+    </div>
+  </section>
+
+  <!-- 논문 -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>학술논문 <span class="muted" style="font-size:.6em; font-weight:500">전체 <span id="total">0</span>편</span></h2>
+      </div>
+
+      <div class="pub-toolbar" id="filters" role="group" aria-label="주제 필터">
+        <input type="text" id="search" placeholder="제목으로 검색…" aria-label="논문 제목 검색">
+      </div>
+
+      <p class="small muted" id="result-count" aria-live="polite"></p>
+      <ul class="pub-list" id="pubs">
+        <li><span class="pub-title muted">불러오는 중…</span></li>
+      </ul>
+
+      <p class="small muted" style="margin-top:1.6rem">
+        한국학술지인용색인(<a href="https://www.kci.go.kr/" target="_blank" rel="noopener">KCI</a>) 저자 실적 자료를
+        그대로 옮긴 것입니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 저역서 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">BOOKS</p>
+        <h2>저역서 <span class="muted" style="font-size:.6em; font-weight:500">전체 <span id="book-total">0</span>권</span></h2>
+        <p>공저·편저와 교육 자료집을 포함합니다.</p>
+      </div>
+      <ul class="pub-list" id="books">
+        <li><span class="pub-title muted">불러오는 중…</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 연구 과제 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">PROJECTS</p>
+        <h2>연구 과제</h2>
+        <p id="proj-sub">불러오는 중…</p>
+      </div>
+
+      <div id="proj-current-wrap" style="display:none; margin-bottom:2.4rem">
+        <h3 style="font-family:var(--font-serif); margin-bottom:1rem">진행 중</h3>
+        <div class="grid grid-2" id="proj-current"></div>
+      </div>
+
+      <div id="proj-past-wrap" style="display:none">
+        <h3 style="font-family:var(--font-serif); margin-bottom:1rem">지난 과제</h3>
+        <ul class="pub-list" id="proj-past"></ul>
+      </div>
+      <p class="small muted" id="proj-note" style="margin-top:1.2rem"></p>
+    </div>
+  </section>
+
+  <!-- 특강 -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">TALKS</p>
+        <h2>주요 특강·발표</h2>
+        <p>사서교사 연수, 교육청·도서관 강연, 학술대회 발표입니다.</p>
+      </div>
+      <ul class="pub-list">
+        <li><span class="pub-title">리터러시와 독서인문교육</span><span class="pub-meta">전라남도교육청 · 2026</span></li>
+        <li><span class="pub-title">학교도서관 교육의 이해 — 독서교육 선도교원 양성 연수</span><span class="pub-meta">2026</span></li>
+        <li><span class="pub-title">미디어 리터러시의 이해 — 사서 연수</span><span class="pub-meta">국립중앙도서관 · 2025</span></li>
+        <li><span class="pub-title">독서교육의 효과와 실제</span><span class="pub-meta">2025</span></li>
+        <li><span class="pub-title">다매체 환경에서의 독서교육 이해와 설계</span><span class="pub-meta">2025</span></li>
+        <li><span class="pub-title">사서교사의 명칭과 역할</span><span class="pub-meta">2025</span></li>
+        <li><span class="pub-title">학교도서관 현황조사 데이터 분석 연구</span><span class="pub-meta">2025</span></li>
+        <li><span class="pub-title">사서교사 직무 체계화 및 배치모형 개발 연구</span><span class="pub-meta">2024</span></li>
+        <li><span class="pub-title">디지털 신기술 기반 디지털 독서교육 방안 모색</span><span class="pub-meta">2024</span></li>
+        <li><span class="pub-title">디지털 미디어 리터러시 향상을 위한 사서교사의 역할</span><span class="pub-meta">2023</span></li>
+        <li><span class="pub-title">학교에서의 사서교사의 역할 — 신규 사서교사 연수</span><span class="pub-meta">광주광역시교육청 · 2022</span></li>
+        <li><span class="pub-title">디지털 미디어 리터러시 교육 / 뇌과학과 독서교육</span><span class="pub-meta">울산광역시교육청 · 2022</span></li>
+        <li><span class="pub-title">미디어정보 리터러시</span><span class="pub-meta">충청북도교육도서관 · 2021</span></li>
+        <li><span class="pub-title">미디어정보 리터러시 — 사서교사 대상 연수</span><span class="pub-meta">광주광역시교육청 · 2021</span></li>
+        <li><span class="pub-title">예비 사서교사 대상 연수</span><span class="pub-meta">전북대학교 · 2020</span></li>
+        <li><span class="pub-title">사서교사 1급 자격연수</span><span class="pub-meta">공주대·경기대·대진대 · 2019–2022</span></li>
+        <li><span class="pub-title">사서교사의 역할</span><span class="pub-meta">전남대학교 · 2017</span></li>
+        <li><span class="pub-title">독서 리터러시 증진을 위한 사서교사 배치 방안</span><span class="pub-meta">국회 세미나</span></li>
+        <li><span class="pub-title">미디어정보 리터러시 교육 내용</span><span class="pub-meta">서울서부교육지원청</span></li>
+        <li><span class="pub-title">도서관과 디지털 리터러시</span><span class="pub-meta">충남도서관</span></li>
+        <li><span class="pub-title">도서관의 국제개발협력(ODA) 사례와 전략</span><span class="pub-meta">—</span></li>
+      </ul>
+      <p class="small muted" style="margin-top:1.2rem">
+        연도는 발표 자료 파일에서 확인한 것입니다. 사실과 다르면 알려 주세요.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/common.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/settings.js"></script>
+<script>
+(function () {
+  let DATA = null;
+  let activeTheme = 'all';
+  let query = '';
+
+  const listEl = document.getElementById('pubs');
+  const filtersEl = document.getElementById('filters');
+  const searchEl = document.getElementById('search');
+  const countEl = document.getElementById('result-count');
+
+  fetch('data/publications.json')
+    .then((r) => r.json())
+    .then((data) => {
+      DATA = data;
+      // 연도가 적힌 것을 최신순으로 먼저, 연도 미기재는 뒤로 (원래 순서 유지)
+      DATA.items.sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+      document.getElementById('total').textContent = String(data.items.length);
+      buildFilters();
+      render();
+    })
+    .catch(() => {
+      listEl.innerHTML = '<li><span class="pub-title muted">논문 목록을 불러오지 못했습니다.</span></li>';
+    });
+
+  function buildFilters() {
+    const counts = {};
+    DATA.items.forEach((p) => { counts[p.theme] = (counts[p.theme] || 0) + 1; });
+
+    const chips = [['all', '전체', DATA.items.length]]
+      .concat(Object.entries(DATA.themes).map(([key, t]) => [key, t.label, counts[key] || 0]));
+
+    chips.forEach(([key, label, n]) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.dataset.theme = key;
+      b.textContent = `${label} ${n}`;
+      b.setAttribute('aria-pressed', String(key === 'all'));
+      b.addEventListener('click', () => {
+        activeTheme = key;
+        filtersEl.querySelectorAll('.chip').forEach((c) =>
+          c.setAttribute('aria-pressed', String(c.dataset.theme === key)));
+        render();
+      });
+      filtersEl.appendChild(b);
+    });
+  }
+
+  searchEl.addEventListener('input', (e) => { query = e.target.value.trim().toLowerCase(); render(); });
+
+  // 저역서
+  fetch('data/books.json')
+    .then((r) => r.json())
+    .then(({ items }) => {
+      const box = document.getElementById('books');
+      document.getElementById('book-total').textContent = String(items.length);
+      box.innerHTML = items.map((b) => `
+        <li>
+          <span class="pub-title">
+            ${esc(b.title)}
+            <span class="pub-cite">${esc(b.publisher)}${b.authors ? ' · ' + esc(b.authors) : ''}</span>
+          </span>
+          <span class="pub-meta">
+            <span class="pub-year">${esc(b.year || '')}${b.month ? '.' + String(b.month).padStart(2, '0') : ''}</span>
+          </span>
+        </li>`).join('');
+    })
+    .catch(() => {
+      document.getElementById('books').innerHTML =
+        '<li><span class="pub-title muted">저역서 목록을 불러오지 못했습니다.</span></li>';
+    });
+
+  // 연구 과제
+  // 사업비 공개 여부는 관리 페이지에서 켜고 끌 수 있습니다.
+  // 관리자가 정한 값이 있으면 그것을, 없으면 projects.json 의 showBudget 을 따릅니다.
+  Promise.all([
+    fetch('data/projects.json').then((r) => r.json()),
+    readSetting('showProjectBudget', null),
+  ])
+    .then(([data, saved]) => {
+      const list = (data.projects || []).filter((p) => !p.hide);
+      const showMoney = saved === null ? data.showBudget !== false : saved === true;
+      const today = new Date().toISOString().slice(0, 10);
+
+      const isLead = (p) => p.role === '연구책임자';
+      const running = list.filter((p) => !p.end || p.end >= today);
+      const done = list.filter((p) => p.end && p.end < today);
+
+      // 총액은 연구책임 과제만 더합니다.
+      // 공동연구원 과제의 총사업비를 본인 수주액으로 오해할 수 있기 때문입니다.
+      const leadCount = list.filter(isLead).length;
+      const coCount = list.length - leadCount;
+      const leadTotal = list.filter(isLead).reduce((s, p) => s + (p.budget || 0), 0);
+
+      const money = showMoney && leadTotal ? ` (총 연구비 ${fmtMoney(leadTotal)})` : '';
+      document.getElementById('proj-sub').textContent =
+        `연구책임자 ${leadCount}건${money} · 공동연구원 ${coCount}건`;
+
+      const period = (p) => `${fmtMonth(p.start)}–${fmtMonth(p.end)}`;
+      const where = (p) => [
+        p.agency,
+        p.program,
+        p.lead ? `연구책임 ${p.lead}` : '',
+      ].filter(Boolean).join(' · ');
+      const roleTag = (p) => isLead(p)
+        ? '<span class="tag tag--mil">연구책임자</span>'
+        : '<span class="tag">공동연구원</span>';
+      // 금액은 연구책임 과제에만 표시합니다.
+      const amount = (p) => (showMoney && isLead(p) && p.budget) ? fmtMoney(p.budget) : '';
+
+      if (running.length) {
+        document.getElementById('proj-current-wrap').style.display = '';
+        document.getElementById('proj-current').innerHTML = running.map((p) => `
+          <article class="card">
+            <div class="row" style="gap:.4rem">
+              <span class="tag tag--reading">진행 중</span>
+              ${roleTag(p)}
+              ${amount(p) ? `<span class="small muted">${esc(amount(p))}</span>` : ''}
+            </div>
+            <h4 style="margin:.7rem 0 .3rem; font-size:1.05rem; line-height:1.45">${esc(p.title)}</h4>
+            <p class="small muted mb-0">${esc(where(p))}${where(p) ? '<br>' : ''}${esc(period(p))}</p>
+            ${p.note ? `<p class="small" style="margin:.5rem 0 0; color:var(--ink-soft)">${esc(p.note)}</p>` : ''}
+          </article>`).join('');
+      }
+
+      if (done.length) {
+        document.getElementById('proj-past-wrap').style.display = '';
+        document.getElementById('proj-past').innerHTML = done.map((p) => `
+          <li>
+            <span class="pub-title">
+              ${esc(p.title)}
+              <span class="pub-cite">${esc(where(p))}${p.note ? ' · ' + esc(p.note) : ''}</span>
+            </span>
+            <span class="pub-meta">
+              <span class="pub-year">${esc(period(p))}</span>
+              ${roleTag(p)}
+              ${amount(p) ? `<span>${esc(amount(p))}</span>` : ''}
+            </span>
+          </li>`).join('');
+      }
+
+      if (showMoney) {
+        document.getElementById('proj-note').textContent =
+          '금액은 연구책임자로 수주한 과제만 표시했습니다. 공동연구원 과제의 총사업비는 적지 않았습니다.';
+      }
+    })
+    .catch(() => {
+      document.getElementById('proj-sub').textContent = '연구 과제를 불러오지 못했습니다.';
+    });
+
+  function render() {
+    const rows = DATA.items.filter((p) => {
+      const themeOk = activeTheme === 'all' || p.theme === activeTheme;
+      const textOk = !query || p.title.toLowerCase().includes(query);
+      return themeOk && textOk;
+    });
+
+    countEl.textContent = rows.length === DATA.items.length
+      ? ''
+      : `${rows.length}편이 검색되었습니다.`;
+
+    if (!rows.length) {
+      listEl.innerHTML = '<li><span class="pub-title muted">조건에 맞는 논문이 없습니다.</span></li>';
+      return;
+    }
+
+    listEl.innerHTML = rows.map((p) => {
+      const t = DATA.themes[p.theme];
+      const vol = [p.volume, p.issue ? `(${p.issue})` : ''].filter(Boolean).join('');
+      const where = [p.journal, vol, p.pages].filter(Boolean).join(' ');
+      return `<li>
+        <span class="pub-title">
+          ${esc(p.title)}
+          <span class="pub-cite">${esc(p.authors)}${where ? ' · ' + esc(where) : ''}</span>
+        </span>
+        <span class="pub-meta">
+          <span class="pub-year">${esc(p.year || '')}${p.month ? '.' + String(p.month).padStart(2, '0') : ''}</span>
+          <span class="tag tag--${esc(p.theme)}">${esc(t ? t.label : '')}</span>
+          ${p.citations > 0 ? `<span class="pub-cited">피인용 ${esc(p.citations)}</span>` : ''}
+        </span>
+      </li>`;
+    }).join('');
+  }
+})();
+</script>
+</body>
+</html>
