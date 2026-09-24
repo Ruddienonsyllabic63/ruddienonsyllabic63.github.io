@@ -65,17 +65,6 @@
     </div>
   </section>
 
-  <!-- 개설 예정 -->
-  <section class="section" id="upcoming-wrap" style="display:none">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>개설 예정</h2>
-        <p>개발을 마치고 개설을 기다리는 과목입니다.</p>
-      </div>
-      <div class="grid grid-2" id="upcoming-list"></div>
-    </div>
-  </section>
-
   <!-- 강의 이력 -->
   <section class="section">
     <div class="wrap">
@@ -119,7 +108,6 @@
       const details = cData.courses || [];
       renderStats(teaching.summary);
       renderCurrent(teaching.semesters[0], details);
-      renderUpcoming(details);
       renderHistory(teaching);
       renderRank(teaching.byCourse);
     })
@@ -184,22 +172,6 @@
         ${links}
       </article>`;
     }).join('');
-  }
-
-  function renderUpcoming(details) {
-    const list = details.filter((d) => d.upcoming);
-    if (!list.length) return;
-    document.getElementById('upcoming-wrap').style.display = '';
-    document.getElementById('upcoming-list').innerHTML = list.map((d) => `
-      <article class="card course-card">
-        <span class="course-card__term">${esc(d.term || '개설 예정')}</span>
-        <h3 class="course-card__title">${esc(d.title)}</h3>
-        <p class="small muted" style="margin:0">${esc(d.target || '')}</p>
-        <p class="small" style="margin:.4rem 0 0; color:var(--ink-soft)">${esc(d.summary || '')}</p>
-        <div class="course-card__links">
-          <a class="btn btn--ghost btn--sm" href="course.html?id=${encodeURIComponent(d.id)}">과목 안내</a>
-        </div>
-      </article>`).join('');
   }
 
   function renderHistory(teaching) {

@@ -39,8 +39,7 @@
 
   async function init() {
     try {
-      // 아직 열리지 않은 '개설 예정' 과목에는 제출할 수 없습니다.
-      courses = (await API.listCourses()).filter((c) => !c.upcoming);
+      courses = await API.listCourses();
     } catch {
       show('danger', '과목 정보를 불러오지 못했습니다.');
       return;
