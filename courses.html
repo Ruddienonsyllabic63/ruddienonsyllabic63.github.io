@@ -174,9 +174,7 @@
         <p class="small muted" style="margin:0">
           ${esc(c.when || '')}${c.room ? ' · ' + esc(c.room) : ''}
         </p>
-        <p class="small" style="margin:.2rem 0 0; color:var(--ink-soft)">
-          ${showN ? `수강 ${esc(c.enrolled ?? '-')}명` : ''}${showN && c.capacity ? ' / ' : ''}${c.capacity ? `정원 ${esc(c.capacity)}명` : ''}${c.mode ? ' · ' + esc(c.mode) : ''}
-        </p>
+        ${showN ? `<p class="small" style="margin:.2rem 0 0; color:var(--ink-soft)">수강 ${esc(c.enrolled ?? '-')}명</p>` : ''}
         ${d && d.summary ? `<p class="small" style="margin:.5rem 0 0; color:var(--ink-soft)">${esc(d.summary)}</p>` : ''}
         ${links}
       </article>`;
