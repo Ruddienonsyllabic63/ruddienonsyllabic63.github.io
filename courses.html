@@ -71,9 +71,9 @@
       <div class="section-head">
         <p class="eyebrow">HISTORY</p>
         <h2>학기별 강의 이력</h2>
-        <p>학기를 누르면 그 학기에 가르친 과목이 펼쳐집니다.</p>
+        <p>왼쪽이 1학기, 오른쪽이 2학기입니다.</p>
       </div>
-      <div id="history"></div>
+      <div class="years" id="history"></div>
       <p class="small muted" id="history-note" style="margin-top:1.2rem"></p>
     </div>
   </section>
@@ -182,22 +182,43 @@
   }
 
   function renderHistory(teaching) {
-    document.getElementById('history').innerHTML = teaching.semesters.map((s, i) => `
-      <details class="sem"${i === 0 ? ' open' : ''}>
-        <summary>
-          ${esc(s.label)}
-          <span class="sem__meta">${esc(s.courseCount)}과목${showN ? ` · ${esc(s.students)}명` : ''}</span>
-        </summary>
-        <div class="sem__body">
-          ${s.courses.map((c) => `
-            <div class="cl">
-              ${levelTag(c.level)}
-              <span class="cl__name">${esc(c.title)}</span>
-              <span class="cl__meta">${esc(c.when || '')}${c.room ? ' · ' + esc(c.room) : ''}</span>
-              ${showN ? `<span class="cl__n">수강 ${esc(c.enrolled ?? '-')}명</span>` : ''}
-            </div>`).join('')}
+    // 연도별로 묶어 1학기·2학기를 나란히 놓습니다.
+    const byYear = new Map();
+    teaching.semesters.forEach((s) => {
+      if (!byYear.has(s.year)) byYear.set(s.year, {});
+      byYear.get(s.year)[s.term] = s;
+    });
+
+    const courseLine = (c) => `
+      <li title="${esc(c.title)}${c.code ? ' · ' + esc(c.code) : ''}">
+        ${levelTag(c.level)}
+        <span class="term__name">${esc(c.title)}</span>
+        ${c.lab ? '<span class="tag tag--lab">실습</span>' : ''}
+        ${showN ? `<span class="term__n">${esc(c.enrolled ?? '-')}명</span>` : ''}
+      </li>`;
+
+    const termBlock = (sem, term) => {
+      if (!sem) {
+        return `<div class="term">
+          <h4 class="term__label">${term}학기</h4>
+          <p class="term--empty">강의 없음</p>
+        </div>`;
+      }
+      return `<div class="term">
+        <h4 class="term__label">${term}학기 <span>${esc(sem.courseCount)}과목${showN ? ` · ${esc(sem.students)}명` : ''}</span></h4>
+        <ul class="term__list">${sem.courses.map(courseLine).join('')}</ul>
+      </div>`;
+    };
+
+    const years = [...byYear.keys()].sort((a, b) => b - a);
+    document.getElementById('history').innerHTML = years.map((y) => `
+      <div class="year">
+        <div class="year__no">${esc(y)}</div>
+        <div class="year__terms">
+          ${termBlock(byYear.get(y)[1], 1)}
+          ${termBlock(byYear.get(y)[2], 2)}
         </div>
-      </details>`).join('');
+      </div>`).join('');
 
     document.getElementById('history-note').textContent =
       `강의시간표 ${teaching.semesters.length}건에서 자동으로 만든 기록입니다. (갱신 ${teaching['생성일'] || ''})`;

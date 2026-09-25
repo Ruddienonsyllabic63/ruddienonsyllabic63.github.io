@@ -114,6 +114,24 @@ def norm_mode(v: str) -> str:
     return s
 
 
+# 실습 과목으로 볼지 손으로 정하고 싶을 때 (교과목 코드: True/False)
+LAB_OVERRIDE = {
+    # "LIS4059": True,
+    # "LIS1001": False,
+}
+
+# 주당 교시 수가 이 값 이상이면 실습 과목으로 봅니다.
+# 3학점 이론 과목은 주 3시간(월수금 3교시 또는 화목 2교시)인 반면,
+# 실험실습 과목은 학점보다 수업 시간이 길어 4교시 이상으로 잡힙니다.
+LAB_MIN_HOURS = 4
+
+
+def is_lab(code: str, hours: int) -> bool:
+    if code in LAB_OVERRIDE:
+        return LAB_OVERRIDE[code]
+    return hours >= LAB_MIN_HOURS
+
+
 def level_of(code: str) -> str:
     """교과목 코드 앞자리로 과정을 나눕니다. GR=대학원, UNV=교양, 그 밖=학부 전공."""
     c = (code or "").upper()
@@ -199,6 +217,7 @@ def merge(blocks):
             f"{p['day']} {p['time']}" if p["time"] else p["day"] for p in pieces
         )
         c["hours"] = len(slots)
+        c["lab"] = is_lab(c["code"], c["hours"])
         out.append(c)
 
     out.sort(key=lambda c: ({"학부": 0, "교양": 1, "대학원": 2}.get(c["level"], 3), c["title"]))

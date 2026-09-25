@@ -447,7 +447,54 @@ textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
   flex: none; width: 3.4rem; font-weight: 700; color: var(--navy); font-size: .88rem;
 }
 
+/* 지표 카드 — 좁은 화면에서도 한 줄을 지킵니다 */
+.stat-row {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: .8rem; max-width: 560px;
+}
+.stat-row .card { padding: 1.1rem .7rem; }
+@media (max-width: 480px) { .stat-row { gap: .5rem; } .stat-row .card { padding: .9rem .4rem; } }
+
 /* ---------- 11-b. 강의 이력 ---------- */
+/* 연도 한 줄에 1학기·2학기를 나란히 */
+.years { display: grid; gap: 0; }
+.year {
+  display: grid; grid-template-columns: 4.4rem 1fr; gap: .2rem 1.1rem;
+  padding: 1.1rem 0; border-top: 1px solid var(--line-soft);
+}
+.year:first-child { border-top: 0; padding-top: .2rem; }
+.year__no {
+  font-family: var(--font-serif); font-size: 1.32rem; font-weight: 700;
+  color: var(--navy); line-height: 1.2; padding-top: .1rem;
+}
+.year__terms { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.6rem; min-width: 0; }
+.term { min-width: 0; }
+.term__label {
+  font-size: .76rem; font-weight: 700; color: var(--ink-faint);
+  letter-spacing: .05em; margin: 0 0 .35rem;
+  padding-bottom: .28rem; border-bottom: 1px solid var(--line-soft);
+  display: flex; align-items: baseline; gap: .4rem;
+}
+.term__label span { font-weight: 500; margin-left: auto; }
+.term__list { list-style: none; margin: 0; padding: 0; }
+.term__list li {
+  display: flex; align-items: center; gap: .4rem;
+  padding: .28rem 0; font-size: .92rem; min-width: 0;
+}
+.term__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.term__n { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
+.term--empty { color: var(--ink-faint); font-size: .88rem; padding: .28rem 0; }
+.tag--lab {
+  color: var(--gold); border-color: color-mix(in srgb, var(--gold) 34%, transparent);
+  background: var(--gold-wash);
+}
+.years .tag { flex: none; font-size: .71rem; padding: .1rem .4rem; }
+
+@media (max-width: 680px) {
+  .year { grid-template-columns: 1fr; gap: .5rem; }
+  .year__terms { grid-template-columns: 1fr; gap: .9rem; }
+}
+
 .tag--ug   { color: var(--t-mil);     border-color: color-mix(in srgb, var(--t-mil) 30%, transparent);     background: color-mix(in srgb, var(--t-mil) 9%, transparent); }
 .tag--grad { color: var(--t-policy);  border-color: color-mix(in srgb, var(--t-policy) 30%, transparent);  background: color-mix(in srgb, var(--t-policy) 9%, transparent); }
 .tag--ge   { color: var(--t-library); border-color: color-mix(in srgb, var(--t-library) 30%, transparent); background: color-mix(in srgb, var(--t-library) 9%, transparent); }
