@@ -115,7 +115,6 @@
         <h3 style="font-family:var(--font-serif); margin-bottom:1rem">지난 과제</h3>
         <ul class="pub-list" id="proj-past"></ul>
       </div>
-      <p class="small muted" id="proj-note" style="margin-top:1.2rem"></p>
     </div>
   </section>
 
@@ -325,10 +324,6 @@
           </li>`).join('');
       }
 
-      if (showMoney) {
-        document.getElementById('proj-note').textContent =
-          '금액은 연구책임자로 수주한 과제만 표시했습니다. 공동연구원 과제의 총사업비는 적지 않았습니다.';
-      }
     })
     .catch(() => {
       document.getElementById('proj-sub').textContent = '연구 과제를 불러오지 못했습니다.';
